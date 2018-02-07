@@ -55,7 +55,7 @@ int main()
     const int size = 16384+2; 
     const float a = .05, b = .1, c = .4, t = .1;
     int k = 0, l=0;
-    
+
     // Allocate arrays and time
     auto x_alloc = std::chrono::high_resolution_clock::now(); //Begin stopwatch
     float x[size][size] = { }; 
@@ -72,7 +72,7 @@ int main()
     auto smoothy = std::chrono::high_resolution_clock::now(); 
     smooth(x,y,size,a,b,c);
     auto smoothy_stop = std::chrono::high_resolution_clock::now(); 
-    
+
     // Count number of elements below threshold in both arrays
     auto count_x = std::chrono::high_resolution_clock::now(); 
     count(x,size,t,k);
@@ -80,7 +80,7 @@ int main()
     auto count_y = std::chrono::high_resolution_clock::now(); 
     count(y,size,t,l);
     auto count_y_stop = std::chrono::high_resolution_clock::now(); 
-    
+
     chrono::duration<double> allocate_x = x_stop-x_alloc; 
     chrono::duration<double> allocate_y = y_stop-y_alloc;
     chrono::duration<double> init_x = pop_x_stop-pop_x;
